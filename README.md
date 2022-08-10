@@ -64,9 +64,9 @@ constant values. In this project, it is used to store the values of the RGB colo
 that are going to be used to paint the shapes. The constructor takes four int 
 parameters, r(red), g(green), b(blue), and a(opacity), and using set methods stores values ranging from 0 to 255 in each int variable. Also, MyColor has to get 
 methos returning each r, g, b, and a variable.
-  * **getHexColor Method: **   This method returns a String with the Hexadecimal 
+  * **getHexColor Method:**   This method returns a String with the Hexadecimal 
 color. It uses toHexString method taking argb as its only parameter.
-  * **getAWTColor Method: **    It returns the color using the method decode from 
+  * **getAWTColor Method:**    It returns the color using the method decode from 
 java.awt.Color package taking toString(argb) as parameter. For this 
 project, this method was not used.
   * **getJavaFXColor Method:**   This method also returns the color and is the 
@@ -117,7 +117,7 @@ variables and the color (being blue the default color).
 with de x-axis. It accomplishes this in a similar matter to the method 
 angleX from the class MyPoint (refer to it in de description above: Class 
 My Point -> angleX Method)
-  * **length Method: **  It returns the length of the line. To do so, it uses 
+  * **length Method:**  It returns the length of the line. To do so, it uses 
 Math.pow to calculate the sum of the square root of the x and y distances 
 and Math.sqrt to take the square root of the result.
   * **area Method:** It returns the area. Since lines do not have an area, this 
@@ -130,10 +130,69 @@ For this class, it returns “Line [p1,p2] Length [value of length]”.
 getting the color with .setStroke taking color.getJavaFXColor() as argument 
 and .strokeLine taking the coordinates of the endpoints.
 
+<br/>
 
+* **Class MyRectangle:**   This class extends the super class MyShape. The 
+MyRectangle object is a rectangle of a top-right corner point p, and height h, 
+width w and is filled with a color of enum reference type MyColor. The 
+constructor takes the TLC point, width, height, and Color. If color is not given 
+turquoise will be the default:
+  * **getTLC/Width/Height/Color Method:**   The get methods return pTLC(top 
+right corner point), width, height, and color respectively
+  * **area Method:**  This method returns a double with the area of the rectangle. 
+It performs it by multiplying width*height
+  * **perimeter Method:**  It returns the perimeter of the MyRectangle object by 
+performing the following equation: 2*(width*height).
+  * **toString Method:**   This method returns a string representation of the 
+MyRectangle object. The printed message is “Rectangle Top Left Corner 
+value[pTLC] Width value[width] Height values[height] Perimeter 
+perimeter() Area area()”.
+  * **draw Method:** This method draws the rectangle on the canvas. It 
+accomplishes it using .setFill taking .getJavaFXColor() as parameter for the 
+color and .fillReact taking the coordinates of the top left corner and width 
+and height.
 
+<br/>
 
+* **Class MyOval:**   This class extends the super class MyShape. The MyOval object is 
+defined by ellipse within a rectangle of height variable called minor, and width 
+variable called major. Also, it has a center point type MyPoint p, and a color from 
+MyColor
+  * **area Method:**   It returns the area of the MyOval object by performing 
+Pi*(major)*(minor). The value of Pi is obtained with the java.lang.Math 
+class.
+  * **perimeter Method:**  This method returns the perimeter of the oval. It does 
+it by using the following formula: 
+(2*Pi)*sqrt(((major*major)+(minor*minor))/2). The square root is 
+calculated in the same way as in previous methods.
+  * **toString Method:**  This method returns a string representation of the 
+MyOval object. The printed message is 
+“Circle Center: (value[x], value[y])
+Major-axis length: value[major]
+Minor-axis length: value[minor]
+Area: value[area]
+Perimeter: value[perimeter]”
+  * **draw Method:**  This method draws the oval on the canvas. It does it by 
+using .setFill taking .getJavaFXColor a parameter for the color, and .fillOval 
+taking the center point coordinates, and 2*major and 2*minor axis.
 
+## Output
+Three different outputs are provided showing how the shapes adapt to 
+different sizes of the canvas. The code background is kept on the screen show to show 
+the perspective of the different sizes.
 
+* Canvas(130,100):
+<p align="center">
+  <img width="230" height="200" src="https://user-images.githubusercontent.com/74331905/183976889-9fdd8b55-ad9e-44f6-af5c-2dd265362dc5.png">
+</p>
 
-   
+* Canvas(500,200):
+<p align="center">
+  <img width="500" height="300" src="https://user-images.githubusercontent.com/74331905/183976907-12d5aba2-45b9-4f80-8ee5-ea3f68247684.png">
+</p>
+
+* Canvas(500,750):
+<p align="center">
+  <img width="500" height="550" src="https://user-images.githubusercontent.com/74331905/183976916-140609ca-78c3-4bd0-9aae-067d06490044.png">
+</p>
+
